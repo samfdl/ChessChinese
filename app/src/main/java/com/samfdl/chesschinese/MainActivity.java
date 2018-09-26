@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+
+import com.samfdl.chesschinese.pojo.Position;
+import com.samfdl.chesschinese.pojo.QiZi;
+import com.samfdl.chesschinese.pojo.Zu;
 
 import java.util.ArrayList;
 
@@ -12,10 +17,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int chessManSize;
     private int nextChessManSize;
 
-    private FrameLayout chessBoard;
+    private RelativeLayout chessBoard;
 
-    private ArrayList<ImageView> chessViewList = new ArrayList<ImageView>();
-    private ArrayList<ChessMan> chessManList = new ArrayList<ChessMan>();
+    private ArrayList<QiZi> qiZiList = new ArrayList();
 
     private ImageView selectedChessView;
     private ArrayList<View> selectedChessNestViewList = new ArrayList<View>();
@@ -26,31 +30,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setContentView(R.layout.activity_main);
 
-        chessBoard = (FrameLayout) findViewById(R.id.chess_board);
+        chessBoard = findViewById(R.id.chess_board);
 
         chessManSize = (int) getResources().getDimension(R.dimen.layout_margin2);
         nextChessManSize = (int) getResources().getDimension(R.dimen.next_chessman_size);
 
-        for (int i = 1; i <= 32; i++) {
-            ChessMan chessMan = new ChessMan(i);
-            chessManList.add(chessMan);
+        QiZi qiZi = new Zu(this, 1, new Position(0, 3));
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(nextChessManSize, nextChessManSize);
+        params.setMargins(qiZi.position.x * chessManSize, qiZi.position.y * chessManSize, 0, 0);
+        chessBoard.addView(qiZi, params);
 
-            // 设置棋子图片
-            ImageView chessView = new ImageView(this);
-            chessView.setImageResource(chessMan.getImage());
-            // 加载监听和标志
-            chessView.setOnClickListener(this);
-            chessView.setTag(chessMan);
-
-            // 设置棋子大小、位置
-            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(chessManSize, chessManSize);
-            params.setMargins(chessMan.getPosition().getX() * chessManSize, chessMan.getPosition().getY() * (chessManSize + 2), 0, 0);
-
-            // 加载到棋盘
-            chessBoard.addView(chessView, params);
-
-            chessViewList.add(chessView);
-        }
+//        for (int i = 1; i <= 32; i++) {
+//            ChessMan chessMan = new ChessMan(i);
+//            chessManList.add(chessMan);
+//
+//            // 设置棋子图片
+//            ImageView chessView = new ImageView(this);
+//            chessView.setImageResource(chessMan.getImage());
+//            // 加载监听和标志
+//            chessView.setOnClickListener(this);
+//            chessView.setTag(chessMan);
+//
+//            // 设置棋子大小、位置
+//            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(chessManSize, chessManSize);
+//            params.setMargins(chessMan.getPosition().getX() * chessManSize, chessMan.getPosition().getY() * (chessManSize + 2), 0, 0);
+//
+//            // 加载到棋盘
+//            chessBoard.addView(chessView, params);
+//
+//            chessViewList.add(chessView);
+//        }
     }
 
     @Override

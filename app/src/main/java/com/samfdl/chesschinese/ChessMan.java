@@ -1,6 +1,6 @@
 package com.samfdl.chesschinese;
 
-import android.util.Log;
+import com.samfdl.chesschinese.pojo.Position;
 
 import java.util.ArrayList;
 
