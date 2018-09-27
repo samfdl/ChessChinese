@@ -1,7 +1,8 @@
 package com.samfdl.chesschinese.pojo;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.v7.widget.AppCompatImageButton;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -9,7 +10,8 @@ import java.util.ArrayList;
  * Created by samfdl on 2018/9/26.
  * 棋子
  */
-public class QiZi extends AppCompatImageButton {
+@SuppressLint("AppCompatCustomView")
+public abstract class QiZi extends ImageView {
     // ID
     public int id;
     // 棋子图片
@@ -24,8 +26,6 @@ public class QiZi extends AppCompatImageButton {
     public ArrayList<Position> nextPosition = new ArrayList();
     // 吃子规则
     public ArrayList<Position> eatPosition = new ArrayList();
-    // 是否已过河
-    public boolean isCrossed = false;
     // 是否已被选中
     public boolean isSelected = false;
     // 是否正在被叫吃
@@ -51,4 +51,12 @@ public class QiZi extends AppCompatImageButton {
         this.id = id;
         this.position = position;
     }
+
+    public void setPosition(int x, int y) {
+        position = new Position(x, y);
+        setNextPosition(x, y);
+    }
+
+    // 棋子的下一步走子位置
+    public abstract void setNextPosition(int x, int y);
 }

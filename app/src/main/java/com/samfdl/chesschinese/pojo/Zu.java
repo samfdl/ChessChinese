@@ -22,18 +22,14 @@ public class Zu extends QiZi {
         setNextPosition(position.x, position.y);
     }
 
-    public void setPosition(int x, int y) {
-        position = new Position(x, y);
-        setNextPosition(x, y);
-    }
-
     // 卒的下一步走子位置
+    @Override
     public void setNextPosition(int x, int y) {
         nextPosition.clear();
         if (y + 1 <= 9) {
             nextPosition.add(new Position(x, y + 1));
         }
-        if (isCrossed) {
+        if (y > 4) {
             if (x - 1 >= 0) {
                 nextPosition.add(new Position(x - 1, y));
             }

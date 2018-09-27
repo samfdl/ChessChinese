@@ -19,5 +19,23 @@ public class Bing extends QiZi {
         setImageResource(image);
         type = ZU;
         isRed = true;
+        setNextPosition(position.x, position.y);
+    }
+
+    // 兵的下一步走子位置
+    @Override
+    public void setNextPosition(int x, int y) {
+        nextPosition.clear();
+        if (y - 1 <= 9) {
+            nextPosition.add(new Position(x, y - 1));
+        }
+        if (y < 5) {
+            if (x - 1 >= 0) {
+                nextPosition.add(new Position(x - 1, y));
+            }
+            if (x + 1 <= 8) {
+                nextPosition.add(new Position(x + 1, y));
+            }
+        }
     }
 }
