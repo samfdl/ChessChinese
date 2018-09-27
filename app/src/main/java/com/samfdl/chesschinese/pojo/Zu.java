@@ -13,8 +13,8 @@ import com.samfdl.chesschinese.R;
  * 故有五支，开局压住阵脚，以张军威。
  */
 public class Zu extends QiZi {
-    public Zu(Context context, int id, Position position) {
-        super(context, id, position);
+    public Zu(Context context, int id, Position position, int[][] map) {
+        super(context, id, position, map);
         image = R.mipmap.black_army;
         setImageResource(image);
         type = ZU;
@@ -26,14 +26,14 @@ public class Zu extends QiZi {
     @Override
     public void setNextPosition(int x, int y) {
         nextPosition.clear();
-        if (y + 1 <= 9) {
+        if (y + 1 <= 9 && map[x][y + 1] == 0) {
             nextPosition.add(new Position(x, y + 1));
         }
         if (y > 4) {
-            if (x - 1 >= 0) {
+            if (x - 1 >= 0 && map[x - 1][y] == 0) {
                 nextPosition.add(new Position(x - 1, y));
             }
-            if (x + 1 <= 8) {
+            if (x + 1 <= 8 && map[x + 1][y] == 0) {
                 nextPosition.add(new Position(x + 1, y));
             }
         }

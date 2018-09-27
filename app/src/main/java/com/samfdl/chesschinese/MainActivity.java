@@ -16,9 +16,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private RelativeLayout chessBoard;
 
+    // 棋子列表
     private ArrayList<QiZi> qiZiList = new ArrayList();
 
+    // 下一步走子位置提示列表
     private ArrayList<View> nestViewList = new ArrayList();
+
+    private int[][] map = new int[9][10];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,29 +34,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         chessManSize = (int) getResources().getDimension(R.dimen.layout_margin2);
 
-        QiZi qiZi = new Zu(this, 1, new Position(0, 3));
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(chessManSize, chessManSize);
-        params.setMargins(qiZi.position.x * chessManSize, qiZi.position.y * chessManSize, 0, 0);
-        qiZi.setOnClickListener(this);
-        chessBoard.addView(qiZi, params);
+        for (int i = 1; i < 6; i++) {
+            QiZi qiZi = new Zu(this, i, new Position(2 * i - 2, 3), map);
+            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(chessManSize, chessManSize);
+            params.setMargins(qiZi.position.x * chessManSize, qiZi.position.y * chessManSize, 0, 0);
+            qiZi.setOnClickListener(this);
+            chessBoard.addView(qiZi, params);
+
+            qiZiList.add(qiZi);
+            // 此位置已有棋子
+            map[qiZi.position.x][qiZi.position.y] = 1;
+        }
     }
 
     @Override
     public void onClick(View view) {
+        // 取消其他已选中棋子
+        for (QiZi qiZi : qiZiList) {
+            if (qiZi.equals(view)) {
+                continue;
+            }
+            qiZi.isSelected = false;
+            qiZi.setBackgroundColor(getResources().getColor(R.color.transparent));
+        }
+        // 取消下一步的走子位置提示
+        for (View chessNextView : nestViewList) {
+            chessBoard.removeView(chessNextView);
+        }
+
         final QiZi qiZi = (QiZi) view;
         if (qiZi.isSelected) {
             // 取消已选中棋子
             qiZi.isSelected = false;
             qiZi.setBackgroundColor(getResources().getColor(R.color.transparent));
-
-            // 取消下一步的走子位置提示
-            for (View chessNextView : nestViewList) {
-                chessBoard.removeView(chessNextView);
-            }
         } else {
             // 选中的棋子背景色标红
             qiZi.isSelected = true;
             qiZi.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+
+            // 设置下一步走子位置
+            qiZi.setNextPosition(qiZi.position.x, qiZi.position.y);
 
             // 标出下一步的走子位置提示
             for (final Position position : qiZi.nextPosition) {
@@ -62,7 +83,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 chessNextView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        // 地图更新
+                        map[qiZi.position.x][qiZi.position.y] = 0;
                         qiZi.setPosition(position.x, position.y);
+                        map[qiZi.position.x][qiZi.position.y] = 1;
+
+                        for (QiZi qiZi : qiZiList) {
+                            qiZi.map = map;
+                        }
 
                         // 取消已选中棋子
                         qiZi.isSelected = false;
@@ -84,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(chessManSize, chessManSize);
                 params.setMargins(position.x * chessManSize, position.y * chessManSize, 0, 0);
                 chessBoard.addView(chessNextView, params);
+
                 nestViewList.add(chessNextView);
             }
         }

@@ -13,8 +13,8 @@ import com.samfdl.chesschinese.R;
  * 故有五支，开局压住阵脚，以张军威。
  */
 public class Bing extends QiZi {
-    public Bing(Context context, int id, Position position) {
-        super(context, id, position);
+    public Bing(Context context, int id, Position position, int[][] map) {
+        super(context, id, position, map);
         image = R.mipmap.red_army;
         setImageResource(image);
         type = ZU;

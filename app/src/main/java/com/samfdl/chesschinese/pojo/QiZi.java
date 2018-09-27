@@ -22,14 +22,12 @@ public abstract class QiZi extends ImageView {
     public boolean isRed;
     // 位置
     public Position position;
-    // 走子规则
+    // 下一步走子位置提示列表
     public ArrayList<Position> nextPosition = new ArrayList();
-    // 吃子规则
-    public ArrayList<Position> eatPosition = new ArrayList();
     // 是否已被选中
     public boolean isSelected = false;
-    // 是否正在被叫吃
-    public boolean isDangerous = false;
+    // 可走位置地图
+    public int[][] map = new int[9][10];
 
     // 将、帅，一军之主也。故不得出中军帐，九宫格也。
     public final static int KING = 1;
@@ -46,10 +44,11 @@ public abstract class QiZi extends ImageView {
     // 卒、兵，步兵，民兵也。因装备训练成本低，故移动缓慢，且只能向前冲，不得后退。冲入敌方阵营后方可横行。故有五支，开局压住阵脚，以张军威。
     public final static int ZU = 7;
 
-    public QiZi(Context context, int id, Position position) {
+    public QiZi(Context context, int id, Position position, int[][] map) {
         super(context);
         this.id = id;
         this.position = position;
+        this.map = map;
     }
 
     public void setPosition(int x, int y) {
