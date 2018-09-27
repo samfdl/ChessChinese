@@ -27,7 +27,7 @@ public abstract class QiZi extends ImageView {
     // 是否已被选中
     public boolean isSelected = false;
     // 可走位置地图
-    public int[][] map = new int[9][10];
+    public int[][] map;
 
     // 将、帅，一军之主也。故不得出中军帐，九宫格也。
     public final static int KING = 1;
@@ -49,11 +49,6 @@ public abstract class QiZi extends ImageView {
         this.id = id;
         this.position = position;
         this.map = map;
-    }
-
-    public void setPosition(int x, int y) {
-        position = new Position(x, y);
-        setNextPosition(x, y);
     }
 
     // 棋子的下一步走子位置

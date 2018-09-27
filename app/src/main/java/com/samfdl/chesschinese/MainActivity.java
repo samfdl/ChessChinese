@@ -85,12 +85,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onClick(View v) {
                         // 地图更新
                         map[qiZi.position.x][qiZi.position.y] = 0;
-                        qiZi.setPosition(position.x, position.y);
+                        qiZi.position = position;
                         map[qiZi.position.x][qiZi.position.y] = 1;
-
-                        for (QiZi qiZi : qiZiList) {
-                            qiZi.map = map;
-                        }
 
                         // 取消已选中棋子
                         qiZi.isSelected = false;

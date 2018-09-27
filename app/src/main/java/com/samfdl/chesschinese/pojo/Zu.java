@@ -19,7 +19,6 @@ public class Zu extends QiZi {
         setImageResource(image);
         type = ZU;
         isRed = false;
-        setNextPosition(position.x, position.y);
     }
 
     // 卒的下一步走子位置
