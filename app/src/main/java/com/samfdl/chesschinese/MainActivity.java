@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.samfdl.chesschinese.pojo.Bing;
+import com.samfdl.chesschinese.pojo.Pao;
 import com.samfdl.chesschinese.pojo.Position;
 import com.samfdl.chesschinese.pojo.QiZi;
 import com.samfdl.chesschinese.pojo.Zu;
@@ -52,9 +53,73 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for (int j = 0; j < 10; j++) {
             for (int i = 0; i < 9; i++) {
                 if (map[j][i] > 0) {
-                    QiZi qiZi = new Zu(this, map[j][i], new Position(i, j), map);
+                    QiZi qiZi;
+                    switch (map[j][i]) {
+                        case 1:
+//                            break;
+                        case 2:
+                        case 3:
+
+//                            break;
+                        case 4:
+                        case 5:
+
+//                            break;
+                        case 6:
+                        case 7:
+
+//                            break;
+                        case 8:
+                        case 9:
+
+//                            break;
+                        case 10:
+                        case 11:
+
+//                            break;
+                        case 12:
+                        case 13:
+                        case 14:
+                        case 15:
+                        case 16:
+                            qiZi = new Bing(this, map[j][i], new Position(i, j), map);
+                            break;
+                        case 17:
+
+//                            break;
+                        case 18:
+                        case 19:
+
+//                            break;
+                        case 20:
+                        case 21:
+
+//                            break;
+                        case 22:
+                        case 23:
+
+//                            break;
+                        case 24:
+                        case 25:
+
+//                            break;
+                        case 26:
+                        case 27:
+                            qiZi = new Pao(this, map[j][i], new Position(i, j), map);
+                            break;
+                        case 28:
+                        case 29:
+                        case 30:
+                        case 31:
+                        case 32:
+                            qiZi = new Zu(this, map[j][i], new Position(i, j), map);
+                            break;
+                        default:
+                            qiZi = new Zu(this, map[j][i], new Position(i, j), map);
+                            break;
+                    }
                     RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(chessManSize, chessManSize);
-                    params.setMargins(qiZi.position.x * chessManSize, qiZi.position.y * chessManSize, 0, 0);
+                    params.setMargins(i * chessManSize, j * chessManSize, 0, 0);
                     qiZi.setOnClickListener(this);
 
                     chessBoard.addView(qiZi, params);

@@ -24,18 +24,44 @@ public class Pao extends QiZi {
     @Override
     public void setNextPosition(int x, int y) {
         nextPosition.clear();
-        for (int i = 0; i < 10; i++) {
 
-        }
-        if (y + 1 <= 9 && (map[x][y + 1] > 16 || map[x][y + 1] == 0)) {
-            nextPosition.add(new Position(x, y + 1));
-        }
-        if (y > 4) {
-            if (x - 1 >= 0 && (map[x - 1][y] > 16 || map[x - 1][y] == 0)) {
-                nextPosition.add(new Position(x - 1, y));
+        // 上
+        for (int i = 1; i <= 9; i++) {
+            if (y - i >= 0) {
+                if (map[y - i][x] > 0) {
+                    break;
+                }
+                nextPosition.add(new Position(x, y - i));
             }
-            if (x + 1 <= 8 && (map[x + 1][y] > 16 || map[x + 1][y] == 0)) {
-                nextPosition.add(new Position(x + 1, y));
+        }
+
+        // 下
+        for (int i = 1; i <= 9; i++) {
+            if (y + i <= 9) {
+                if (map[y + i][x] > 0) {
+                    break;
+                }
+                nextPosition.add(new Position(x, y + i));
+            }
+        }
+
+        // 左
+        for (int i = 1; i <= 8; i++) {
+            if (x - i >= 0) {
+                if (map[y][x - i] > 0) {
+                    break;
+                }
+                nextPosition.add(new Position(x - i, y));
+            }
+        }
+
+        // 右
+        for (int i = 1; i <= 8; i++) {
+            if (x + i <= 8) {
+                if (map[y][x + i] > 0) {
+                    break;
+                }
+                nextPosition.add(new Position(x + i, y));
             }
         }
     }
