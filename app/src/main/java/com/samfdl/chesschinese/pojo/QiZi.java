@@ -40,7 +40,7 @@ public abstract class QiZi extends ImageView {
     // 车、車、俥，战车也。横冲直撞，杀伤力极远。但因太快，无法拐弯。
     public final static int TANK = 5;
     // 炮、砲，投石车，弓箭手，弩机手也。因发射时易受攻击，故需前面有盾牌兵掩护。无掩护则不能开火。
-    public final static int CANNON = 6;
+    public final static int PAO = 6;
     // 卒、兵，步兵，民兵也。因装备训练成本低，故移动缓慢，且只能向前冲，不得后退。冲入敌方阵营后方可横行。故有五支，开局压住阵脚，以张军威。
     public final static int ZU = 7;
 

@@ -25,14 +25,14 @@ public class Zu extends QiZi {
     @Override
     public void setNextPosition(int x, int y) {
         nextPosition.clear();
-        if (y + 1 <= 9 && (map[x][y + 1] > 16 || map[x][y + 1] == 0)) {
+        if (y + 1 <= 9 && map[y + 1][x] < 17) {
             nextPosition.add(new Position(x, y + 1));
         }
         if (y > 4) {
-            if (x - 1 >= 0 && (map[x - 1][y] > 16 || map[x - 1][y] == 0)) {
+            if (x - 1 >= 0 && map[y][x - 1] < 17) {
                 nextPosition.add(new Position(x - 1, y));
             }
-            if (x + 1 <= 8 && (map[x + 1][y] > 16 || map[x + 1][y] == 0)) {
+            if (x + 1 <= 8 && map[y][x + 1] < 17) {
                 nextPosition.add(new Position(x + 1, y));
             }
         }

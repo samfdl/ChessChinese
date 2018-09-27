@@ -27,7 +27,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // 下一步走子位置提示列表
     private ArrayList<View> nestViewList = new ArrayList();
 
-    private int[][] map = new int[9][10];
+    private int[][] map = new int[][]{ // 棋盘 10行 9列 ， 初始各位置数字
+            {24, 22, 20, 18, 17, 19, 21, 23, 25},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 26, 0, 0, 0, 0, 0, 27, 0},
+            {28, 0, 29, 0, 30, 0, 31, 0, 32},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {12, 0, 13, 0, 14, 0, 15, 0, 16},
+            {0, 10, 0, 0, 0, 0, 0, 11, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {8, 6, 4, 2, 1, 3, 5, 7, 9}};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,32 +49,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         chessManSize = (int) getResources().getDimension(R.dimen.layout_margin2);
 
-        // 加入黑卒
-        for (int i = 1; i < 6; i++) {
-            QiZi qiZi = new Zu(this, i, new Position(2 * (i - 1), 3), map);
-            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(chessManSize, chessManSize);
-            params.setMargins(qiZi.position.x * chessManSize, qiZi.position.y * chessManSize, 0, 0);
-            qiZi.setOnClickListener(this);
-            chessBoard.addView(qiZi, params);
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 9; i++) {
+                if (map[j][i] > 0) {
+                    QiZi qiZi = new Zu(this, map[j][i], new Position(i, j), map);
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(chessManSize, chessManSize);
+                    params.setMargins(qiZi.position.x * chessManSize, qiZi.position.y * chessManSize, 0, 0);
+                    qiZi.setOnClickListener(this);
 
-            qiZiList.add(qiZi);
-            qiZiMap.put(i, qiZi);
-            // 此位置已有黑方棋子
-            map[qiZi.position.x][qiZi.position.y] = i;
-        }
-
-        // 加入红兵
-        for (int i = 17; i < 22; i++) {
-            QiZi qiZi = new Bing(this, i, new Position(2 * (i - 17), 6), map);
-            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(chessManSize, chessManSize);
-            params.setMargins(qiZi.position.x * chessManSize, qiZi.position.y * chessManSize, 0, 0);
-            qiZi.setOnClickListener(this);
-            chessBoard.addView(qiZi, params);
-
-            qiZiList.add(qiZi);
-            qiZiMap.put(i, qiZi);
-            // 此位置已有红方棋子
-            map[qiZi.position.x][qiZi.position.y] = i;
+                    chessBoard.addView(qiZi, params);
+                    qiZiList.add(qiZi);
+                    qiZiMap.put(map[j][i], qiZi);
+                }
+            }
         }
     }
 
@@ -105,17 +102,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onClick(View v) {
                         // 如果原来有对方棋子，则吃掉
-                        if (map[position.x][position.y] > 0) {
-                            QiZi qiZiDie = qiZiMap.get(map[position.x][position.y]);
+                        if (map[position.y][position.x] > 0) {
+                            QiZi qiZiDie = qiZiMap.get(map[position.y][position.x]);
                             qiZiMap.remove(qiZiDie);
                             qiZiList.remove(qiZiDie);
                             chessBoard.removeView(qiZiDie);
                         }
 
                         // 地图更新
-                        map[qiZi.position.x][qiZi.position.y] = 0;
+                        map[qiZi.position.y][qiZi.position.x] = 0;
                         qiZi.position = position;
-                        map[position.x][position.y] = qiZi.id;
+                        map[position.y][position.x] = qiZi.id;
 
                         // 取消已选中棋子
                         qiZi.isSelected = false;

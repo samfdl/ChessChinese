@@ -25,14 +25,14 @@ public class Bing extends QiZi {
     @Override
     public void setNextPosition(int x, int y) {
         nextPosition.clear();
-        if (y - 1 >= 0 && map[x][y - 1] < 17) {
+        if (y - 1 >= 0 && (map[y - 1][x] > 16 || map[y - 1][x] == 0)) {
             nextPosition.add(new Position(x, y - 1));
         }
         if (y < 5) {
-            if (x - 1 >= 0 && map[x - 1][y] < 17) {
+            if (x - 1 >= 0 && (map[y][x - 1] > 16 || map[y][x - 1] == 0)) {
                 nextPosition.add(new Position(x - 1, y));
             }
-            if (x + 1 <= 8 && map[x + 1][y] < 17) {
+            if (x + 1 <= 8 && (map[y][x + 1] > 16 || map[y][x + 1] == 0)) {
                 nextPosition.add(new Position(x + 1, y));
             }
         }
