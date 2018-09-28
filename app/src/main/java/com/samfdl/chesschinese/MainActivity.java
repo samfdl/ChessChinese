@@ -12,7 +12,10 @@ import com.samfdl.chesschinese.pojo.Pao;
 import com.samfdl.chesschinese.pojo.Position;
 import com.samfdl.chesschinese.pojo.QiZi;
 import com.samfdl.chesschinese.pojo.RedCar;
+import com.samfdl.chesschinese.pojo.RedHorse;
 import com.samfdl.chesschinese.pojo.RedPao;
+import com.samfdl.chesschinese.pojo.RedXiang;
+import com.samfdl.chesschinese.pojo.Xiang;
 import com.samfdl.chesschinese.pojo.Zu;
 
 import java.util.ArrayList;
@@ -67,12 +70,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                            break;
                         case 4:
                         case 5:
-
-//                            break;
+                            qiZi = new RedXiang(this, map[j][i], new Position(i, j), map);
+                            break;
                         case 6:
                         case 7:
-
-//                            break;
+                            qiZi = new RedHorse(this, map[j][i], new Position(i, j), map);
+                            break;
                         case 8:
                         case 9:
                             qiZi = new RedCar(this, map[j][i], new Position(i, j), map);
@@ -97,8 +100,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                            break;
                         case 20:
                         case 21:
-
-//                            break;
+                            qiZi = new Xiang(this, map[j][i], new Position(i, j), map);
+                            break;
                         case 22:
                         case 23:
                             qiZi = new Horse(this, map[j][i], new Position(i, j), map);

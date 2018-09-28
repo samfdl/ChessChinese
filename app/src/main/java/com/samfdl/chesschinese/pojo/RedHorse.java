@@ -6,18 +6,18 @@ import com.samfdl.chesschinese.R;
 
 /**
  * Created by samfdl on 2018/9/28.
- * 黑方马
+ * 红方马
  * 马、馬、㐷，骑兵也。
  * 斜向冲杀，威猛异常之奇兵。
  * 但脚力有限，走不远。
  */
-public class Horse extends QiZi {
-    public Horse(Context context, int id, Position position, int[][] map) {
+public class RedHorse extends QiZi {
+    public RedHorse(Context context, int id, Position position, int[][] map) {
         super(context, id, position, map);
-        image = R.mipmap.black_cavalry;
+        image = R.mipmap.red_cavalry;
         setImageResource(image);
         type = HORSE;
-        isRed = false;
+        isRed = true;
     }
 
     // 八个方向
@@ -33,7 +33,8 @@ public class Horse extends QiZi {
         for (int i = 0; i < 8; i++) {
             if (y + next[i][0] >= 0 && y + next[i][0] <= 9
                     && x + next[i][1] >= 0 && x + next[i][1] <= 8
-                    && map[y + next[i][0]][x + next[i][1]] < 17
+                    // 无棋子或有黑方棋子
+                    && (map[y + next[i][0]][x + next[i][1]] > 16 || map[y + next[i][0]][x + next[i][1]] == 0)
                     // 无别马腿
                     && map[y + bieNext[i][0]][x + bieNext[i][1]] == 0) {
                 nextPosition.add(new Position(x + next[i][1], y + next[i][0]));

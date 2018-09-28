@@ -34,7 +34,7 @@ public abstract class QiZi extends ImageView {
     // 士、仕，贴身侍卫也。不离主将左右，防刺客。主将死，三军皆斩。故亦不敢出中军帐，九宫格也。且斜向巡逻，穿梭不离主将左右。
     public final static int SHI = 2;
     // 相、象，军师，文官，押运粮草也。故不得出己方阵营，且斜向照应己方粮草。
-    public final static int ADVISER = 3;
+    public final static int XIANG = 3;
     // 马、馬、㐷，骑兵也。斜向冲杀，威猛异常之奇兵。但脚力有限，走不远。
     public final static int HORSE = 4;
     // 车、車、俥，战车也。横冲直撞，杀伤力极远。但因太快，无法拐弯。
