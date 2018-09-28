@@ -36,7 +36,7 @@ public abstract class QiZi extends ImageView {
     // 相、象，军师，文官，押运粮草也。故不得出己方阵营，且斜向照应己方粮草。
     public final static int ADVISER = 3;
     // 马、馬、㐷，骑兵也。斜向冲杀，威猛异常之奇兵。但脚力有限，走不远。
-    public final static int CAVALRY = 4;
+    public final static int HORSE = 4;
     // 车、車、俥，战车也。横冲直撞，杀伤力极远。但因太快，无法拐弯。
     public final static int CAR = 5;
     // 炮、砲，投石车，弓箭手，弩机手也。因发射时易受攻击，故需前面有盾牌兵掩护。无掩护则不能开火。

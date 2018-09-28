@@ -7,6 +7,7 @@ import android.widget.RelativeLayout;
 
 import com.samfdl.chesschinese.pojo.Bing;
 import com.samfdl.chesschinese.pojo.Car;
+import com.samfdl.chesschinese.pojo.Horse;
 import com.samfdl.chesschinese.pojo.Pao;
 import com.samfdl.chesschinese.pojo.Position;
 import com.samfdl.chesschinese.pojo.QiZi;
@@ -100,8 +101,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                            break;
                         case 22:
                         case 23:
-
-//                            break;
+                            qiZi = new Horse(this, map[j][i], new Position(i, j), map);
+                            break;
                         case 24:
                         case 25:
                             qiZi = new Car(this, map[j][i], new Position(i, j), map);
