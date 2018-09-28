@@ -29,6 +29,15 @@ public class Pao extends QiZi {
         for (int i = 1; i <= 9; i++) {
             if (y - i >= 0) {
                 if (map[y - i][x] > 0) {
+                    // 隔山打牛
+                    for (int j = 1; j <= 9 - i; j++) {
+                        if (y - i - j >= 0) {
+                            if (map[y - i - j][x] > 0 && map[y - i - j][x] < 17) {
+                                nextPosition.add(new Position(x, y - i - j));
+                                break;
+                            }
+                        }
+                    }
                     break;
                 }
                 nextPosition.add(new Position(x, y - i));
@@ -39,6 +48,15 @@ public class Pao extends QiZi {
         for (int i = 1; i <= 9; i++) {
             if (y + i <= 9) {
                 if (map[y + i][x] > 0) {
+                    // 隔山打牛
+                    for (int j = 1; j <= 9 - i; j++) {
+                        if (y + i + j <= 9) {
+                            if (map[y + i + j][x] > 0 && map[y + i + j][x] < 17) {
+                                nextPosition.add(new Position(x, y + i + j));
+                                break;
+                            }
+                        }
+                    }
                     break;
                 }
                 nextPosition.add(new Position(x, y + i));
@@ -49,6 +67,15 @@ public class Pao extends QiZi {
         for (int i = 1; i <= 8; i++) {
             if (x - i >= 0) {
                 if (map[y][x - i] > 0) {
+                    // 隔山打牛
+                    for (int j = 1; j <= 8 - i; j++) {
+                        if (x - i - j >= 0) {
+                            if (map[y][x - i - j] > 0 && map[y][x - i - j] < 17) {
+                                nextPosition.add(new Position(x - i - j, y));
+                                break;
+                            }
+                        }
+                    }
                     break;
                 }
                 nextPosition.add(new Position(x - i, y));
@@ -59,6 +86,15 @@ public class Pao extends QiZi {
         for (int i = 1; i <= 8; i++) {
             if (x + i <= 8) {
                 if (map[y][x + i] > 0) {
+                    // 隔山打牛
+                    for (int j = 1; j <= 8 - i; j++) {
+                        if (x + i + j <= 8) {
+                            if (map[y][x + i + j] > 0 && map[y][x + i + j] < 17) {
+                                nextPosition.add(new Position(x + i + j, y));
+                                break;
+                            }
+                        }
+                    }
                     break;
                 }
                 nextPosition.add(new Position(x + i, y));
