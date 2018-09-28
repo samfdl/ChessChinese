@@ -16,8 +16,6 @@ public class Horse extends QiZi {
         super(context, id, position, map);
         image = R.mipmap.black_cavalry;
         setImageResource(image);
-        type = HORSE;
-        isRed = false;
     }
 
     // 八个方向

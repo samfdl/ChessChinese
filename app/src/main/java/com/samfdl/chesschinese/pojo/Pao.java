@@ -16,8 +16,6 @@ public class Pao extends QiZi {
         super(context, id, position, map);
         image = R.mipmap.black_cannon;
         setImageResource(image);
-        type = PAO;
-        isRed = false;
     }
 
     // 炮的下一步走子位置

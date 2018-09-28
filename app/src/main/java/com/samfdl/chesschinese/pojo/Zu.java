@@ -17,8 +17,6 @@ public class Zu extends QiZi {
         super(context, id, position, map);
         image = R.mipmap.black_army;
         setImageResource(image);
-        type = ZU;
-        isRed = false;
     }
 
     // 卒的下一步走子位置

@@ -16,10 +16,6 @@ public abstract class QiZi extends ImageView {
     public int id;
     // 棋子图片
     public int image;
-    // 类型
-    public int type;
-    // 阵营
-    public boolean isRed;
     // 位置
     public Position position;
     // 下一步走子位置提示列表

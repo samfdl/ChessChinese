@@ -15,8 +15,6 @@ public class Jiang extends QiZi {
         super(context, id, position, map);
         image = R.mipmap.black_king;
         setImageResource(image);
-        type = KING;
-        isRed = false;
     }
 
     // 四个方向

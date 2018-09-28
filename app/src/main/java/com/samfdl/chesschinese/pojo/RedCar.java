@@ -16,8 +16,6 @@ public class RedCar extends QiZi {
         super(context, id, position, map);
         image = R.mipmap.red_tank;
         setImageResource(image);
-        type = CAR;
-        isRed = true;
     }
 
     // 车的下一步走子位置

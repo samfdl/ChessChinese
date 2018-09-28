@@ -15,8 +15,6 @@ public class Shuai extends QiZi {
         super(context, id, position, map);
         image = R.mipmap.red_king;
         setImageResource(image);
-        type = KING;
-        isRed = true;
     }
 
     // 四个方向

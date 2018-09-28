@@ -18,8 +18,6 @@ public class RedShi extends QiZi {
         super(context, id, position, map);
         image = R.mipmap.red_shi;
         setImageResource(image);
-        type = SHI;
-        isRed = true;
     }
 
     // 四个方向

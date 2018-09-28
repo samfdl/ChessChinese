@@ -17,8 +17,6 @@ public class Bing extends QiZi {
         super(context, id, position, map);
         image = R.mipmap.red_army;
         setImageResource(image);
-        type = ZU;
-        isRed = true;
     }
 
     // 兵的下一步走子位置
