@@ -6,9 +6,12 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.samfdl.chesschinese.pojo.Bing;
+import com.samfdl.chesschinese.pojo.Car;
 import com.samfdl.chesschinese.pojo.Pao;
 import com.samfdl.chesschinese.pojo.Position;
 import com.samfdl.chesschinese.pojo.QiZi;
+import com.samfdl.chesschinese.pojo.RedCar;
+import com.samfdl.chesschinese.pojo.RedPao;
 import com.samfdl.chesschinese.pojo.Zu;
 
 import java.util.ArrayList;
@@ -71,12 +74,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                            break;
                         case 8:
                         case 9:
-
-//                            break;
+                            qiZi = new RedCar(this, map[j][i], new Position(i, j), map);
+                            break;
                         case 10:
                         case 11:
-
-//                            break;
+                            qiZi = new RedPao(this, map[j][i], new Position(i, j), map);
+                            break;
                         case 12:
                         case 13:
                         case 14:
@@ -101,8 +104,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                            break;
                         case 24:
                         case 25:
-
-//                            break;
+                            qiZi = new Car(this, map[j][i], new Position(i, j), map);
+                            break;
                         case 26:
                         case 27:
                             qiZi = new Pao(this, map[j][i], new Position(i, j), map);
