@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 import com.samfdl.chesschinese.pojo.Bing;
 import com.samfdl.chesschinese.pojo.Car;
 import com.samfdl.chesschinese.pojo.Horse;
+import com.samfdl.chesschinese.pojo.Jiang;
 import com.samfdl.chesschinese.pojo.Pao;
 import com.samfdl.chesschinese.pojo.Position;
 import com.samfdl.chesschinese.pojo.QiZi;
@@ -17,6 +18,7 @@ import com.samfdl.chesschinese.pojo.RedPao;
 import com.samfdl.chesschinese.pojo.RedShi;
 import com.samfdl.chesschinese.pojo.RedXiang;
 import com.samfdl.chesschinese.pojo.Shi;
+import com.samfdl.chesschinese.pojo.Shuai;
 import com.samfdl.chesschinese.pojo.Xiang;
 import com.samfdl.chesschinese.pojo.Zu;
 
@@ -65,7 +67,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     QiZi qiZi;
                     switch (map[j][i]) {
                         case 1:
-//                            break;
+                            qiZi = new Shuai(this, map[j][i], new Position(i, j), map);
+                            break;
                         case 2:
                         case 3:
                             qiZi = new RedShi(this, map[j][i], new Position(i, j), map);
@@ -94,8 +97,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             qiZi = new Bing(this, map[j][i], new Position(i, j), map);
                             break;
                         case 17:
-
-//                            break;
+                            qiZi = new Jiang(this, map[j][i], new Position(i, j), map);
+                            break;
                         case 18:
                         case 19:
                             qiZi = new Shi(this, map[j][i], new Position(i, j), map);
