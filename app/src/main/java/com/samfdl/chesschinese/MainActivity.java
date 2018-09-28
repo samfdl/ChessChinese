@@ -14,7 +14,9 @@ import com.samfdl.chesschinese.pojo.QiZi;
 import com.samfdl.chesschinese.pojo.RedCar;
 import com.samfdl.chesschinese.pojo.RedHorse;
 import com.samfdl.chesschinese.pojo.RedPao;
+import com.samfdl.chesschinese.pojo.RedShi;
 import com.samfdl.chesschinese.pojo.RedXiang;
+import com.samfdl.chesschinese.pojo.Shi;
 import com.samfdl.chesschinese.pojo.Xiang;
 import com.samfdl.chesschinese.pojo.Zu;
 
@@ -66,8 +68,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                            break;
                         case 2:
                         case 3:
-
-//                            break;
+                            qiZi = new RedShi(this, map[j][i], new Position(i, j), map);
+                            break;
                         case 4:
                         case 5:
                             qiZi = new RedXiang(this, map[j][i], new Position(i, j), map);
@@ -96,8 +98,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                            break;
                         case 18:
                         case 19:
-
-//                            break;
+                            qiZi = new Shi(this, map[j][i], new Position(i, j), map);
+                            break;
                         case 20:
                         case 21:
                             qiZi = new Xiang(this, map[j][i], new Position(i, j), map);
