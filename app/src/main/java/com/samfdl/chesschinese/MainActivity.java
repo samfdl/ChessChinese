@@ -3,6 +3,7 @@ package com.samfdl.chesschinese;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.samfdl.chesschinese.pojo.Bing;
@@ -173,8 +174,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // 标出下一步的走子位置提示
             for (final Position position : qiZi.nextPosition) {
                 // 设置走子位置图片
-                View chessNextView = new View(this);
-                chessNextView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+                ImageView chessNextView = new ImageView(this);
+                chessNextView.setImageResource(R.drawable.shape_green_dot);
+                chessNextView.setPaddingRelative(60, 60, 60, 60);
                 chessNextView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
