@@ -13,8 +13,7 @@ import com.samfdl.chesschinese.R;
 public class Xiang extends QiZi {
     public Xiang(Context context, int id, Position position, int[][] map) {
         super(context, id, position, map);
-        image = R.mipmap.black_xiang0;
-        setImageResource(image);
+        setForeground(context.getDrawable(R.mipmap.black_xiang0));
     }
 
     // 四个方向

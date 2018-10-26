@@ -16,8 +16,6 @@ import java.util.ArrayList;
 public abstract class QiZi extends ImageView {
     // ID
     public int id;
-    // 棋子图片
-    public int image;
     // 位置
     public Position position;
     // 下一步走子位置提示列表
@@ -33,7 +31,7 @@ public abstract class QiZi extends ImageView {
         this.position = position;
         this.map = map;
 
-        setBackgroundResource(R.mipmap.qizi);
+        setImageResource(R.mipmap.qizi);
     }
 
     // 棋子的下一步走子位置

@@ -14,8 +14,7 @@ import com.samfdl.chesschinese.R;
 public class Car extends QiZi {
     public Car(Context context, int id, Position position, int[][] map) {
         super(context, id, position, map);
-        image = R.mipmap.black_ju0;
-        setImageResource(image);
+        setForeground(context.getDrawable(R.mipmap.black_ju0));
     }
 
     // 车的下一步走子位置

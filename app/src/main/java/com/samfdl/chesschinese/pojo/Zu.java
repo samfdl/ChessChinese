@@ -15,8 +15,7 @@ import com.samfdl.chesschinese.R;
 public class Zu extends QiZi {
     public Zu(Context context, int id, Position position, int[][] map) {
         super(context, id, position, map);
-        image = R.mipmap.black_bing0;
-        setImageResource(image);
+        setForeground(context.getDrawable(R.mipmap.black_bing0));
     }
 
     // 卒的下一步走子位置

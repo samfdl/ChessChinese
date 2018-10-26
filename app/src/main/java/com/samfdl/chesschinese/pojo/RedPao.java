@@ -14,8 +14,7 @@ import com.samfdl.chesschinese.R;
 public class RedPao extends QiZi {
     public RedPao(Context context, int id, Position position, int[][] map) {
         super(context, id, position, map);
-        image = R.mipmap.red_pao0;
-        setImageResource(image);
+        setForeground(context.getDrawable(R.mipmap.red_pao0));
     }
 
     // 炮的下一步走子位置

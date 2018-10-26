@@ -13,8 +13,7 @@ import com.samfdl.chesschinese.R;
 public class Shuai extends QiZi {
     public Shuai(Context context, int id, Position position, int[][] map) {
         super(context, id, position, map);
-        image = R.mipmap.red_shuai0;
-        setImageResource(image);
+        setForeground(context.getDrawable(R.mipmap.red_shuai0));
     }
 
     // 四个方向

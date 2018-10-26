@@ -14,8 +14,7 @@ import com.samfdl.chesschinese.R;
 public class Horse extends QiZi {
     public Horse(Context context, int id, Position position, int[][] map) {
         super(context, id, position, map);
-        image = R.mipmap.black_ma0;
-        setImageResource(image);
+        setForeground(context.getDrawable(R.mipmap.black_ma0));
     }
 
     // 八个方向
