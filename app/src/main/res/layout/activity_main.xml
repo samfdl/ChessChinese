@@ -7,14 +7,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="405dp"
         android:background="@mipmap/chess_board">
 
         <RelativeLayout
             android:id="@+id/chess_board"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp" />
     </LinearLayout>
 </LinearLayout>

@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         chessBoard = findViewById(R.id.chess_board);
 
-        chessManSize = (int) getResources().getDimension(R.dimen.layout_margin2);
+        chessManSize = (int) getResources().getDimension(R.dimen.chessman_size);
 
         for (int j = 0; j < 10; j++) {
             for (int i = 0; i < 9; i++) {
