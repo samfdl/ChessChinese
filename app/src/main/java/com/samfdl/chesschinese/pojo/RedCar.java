@@ -14,7 +14,7 @@ import com.samfdl.chesschinese.R;
 public class RedCar extends QiZi {
     public RedCar(Context context, int id, Position position, int[][] map) {
         super(context, id, position, map);
-        image = R.mipmap.red_tank;
+        image = R.mipmap.red_ju0;
         setImageResource(image);
     }
 

@@ -15,7 +15,7 @@ import com.samfdl.chesschinese.R;
 public class Bing extends QiZi {
     public Bing(Context context, int id, Position position, int[][] map) {
         super(context, id, position, map);
-        image = R.mipmap.red_army;
+        image = R.mipmap.red_bing0;
         setImageResource(image);
     }
 

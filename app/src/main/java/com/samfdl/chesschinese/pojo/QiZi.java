@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.widget.ImageView;
 
+import com.samfdl.chesschinese.R;
+
 import java.util.ArrayList;
 
 /**
@@ -30,6 +32,8 @@ public abstract class QiZi extends ImageView {
         this.id = id;
         this.position = position;
         this.map = map;
+
+        setBackgroundResource(R.mipmap.qizi);
     }
 
     // 棋子的下一步走子位置

@@ -16,7 +16,7 @@ import com.samfdl.chesschinese.R;
 public class RedShi extends QiZi {
     public RedShi(Context context, int id, Position position, int[][] map) {
         super(context, id, position, map);
-        image = R.mipmap.red_shi;
+        image = R.mipmap.red_shi0;
         setImageResource(image);
     }
 

@@ -13,7 +13,7 @@ import com.samfdl.chesschinese.R;
 public class Jiang extends QiZi {
     public Jiang(Context context, int id, Position position, int[][] map) {
         super(context, id, position, map);
-        image = R.mipmap.black_king;
+        image = R.mipmap.black_shuai0;
         setImageResource(image);
     }
 

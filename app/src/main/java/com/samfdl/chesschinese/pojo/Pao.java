@@ -14,7 +14,7 @@ import com.samfdl.chesschinese.R;
 public class Pao extends QiZi {
     public Pao(Context context, int id, Position position, int[][] map) {
         super(context, id, position, map);
-        image = R.mipmap.black_cannon;
+        image = R.mipmap.black_pao0;
         setImageResource(image);
     }
 
